@@ -171,14 +171,10 @@ BEGIN
 END
 GO
 
--- #15 Sanity check queries (optional, run manually -- not part of recreate)
--- SELECT * FROM lib.Books;
--- SELECT * FROM lib.Authors;
--- SELECT * FROM lib.Checkouts;
 
 -- Example JOIN + GROUP BY report: how many books each member currently has checked out
--- SELECT m.FirstName + ' ' + m.LastName AS Member, COUNT(*) AS BooksCheckedOut
--- FROM lib.Checkouts c
--- JOIN lib.Members m ON c.MemberID = m.MemberID
--- WHERE c.ReturnDate IS NULL
--- GROUP BY m.FirstName, m.LastName;
+SELECT m.FirstName + ' ' + m.LastName AS Member, COUNT(*) AS BooksCheckedOut
+FROM lib.Checkouts c
+JOIN lib.Members m ON c.MemberID = m.MemberID
+WHERE c.ReturnDate IS NULL
+GROUP BY m.FirstName, m.LastName;
